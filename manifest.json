@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "TextLinks",
+  "version": "1.0",
+  "description": "Navigate faster by typing \"go\", spacebar, and a text mnemonic. Example: \"go\" + spacebar + \"journal\" sends you to a Google Doc!",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "permissions": ["storage", "tabs"],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "omnibox": {
+    "keyword": "go"
+  }
+}

@@ -1,0 +1,88 @@
+body {
+  font-family: 'Arial', sans-serif;
+  padding: 10px;
+  background-color: #f9f9f9;
+  color: #333;
+  min-width: 400px;
+}
+
+h1 {
+  font-size: 18px;
+  color: #333;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  margin-right: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4285f4;
+  margin: 5px;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #357ae8;
+}
+
+#linksList {
+  list-style-type: none;
+  padding: 8px;
+}
+
+#linksList div {
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.key {
+  font-weight: bold;
+  color: #4285f4; /* A distinct color for the key */
+  margin-right: 5px;
+  text-decoration: none; /* Removes underline from links */
+}
+
+.key:hover {
+  text-decoration: underline; /* Adds underline on hover for better UX */
+}
+
+#linksList button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+#logo {
+  max-width: 100px; /* Adjust as needed */
+  height: auto;
+  display: block;
+  margin: 0 auto 10px; /* Center the logo with some margin at the bottom */
+}
+
+.header {
+  text-align: center; /* Center the logo and the title */
+}
+
+

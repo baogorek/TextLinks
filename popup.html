@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Textinks Extension</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <img src="images/icon128.png" alt="Logo" id="logo">
+    <h1>TextLinks</h1>
+  </div>
+
+  <h2>Add Links here:</h2>
+  <form id="linkForm">
+    <input type="text" id="key" placeholder="Enter shortcut key" required>
+    <input type="text" id="url" placeholder="Enter URL" required>
+    <button type="submit">Save</button>
+  </form>
+
+  <h2>Your Current Link List</h2>
+  <div id="linksList"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
