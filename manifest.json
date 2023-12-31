@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "TextLinks",
-  "version": "1.0",
-  "description": "Navigate faster by typing \"go\", spacebar, and a text mnemonic. Example: \"go\" + spacebar + \"journal\" sends you to a Google Doc!",
+  "version": "1.1",
+  "description": "Navigate faster by typing \"go\", spacebar (or TAB), and a text mnemonic. Example: \"go\" + spacebar + \"journal\" sends you to a Google Doc!",
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

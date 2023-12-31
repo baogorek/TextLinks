@@ -6,33 +6,55 @@ function formatUrl(url) {
   return url;
 }
 
+//chrome.omnibox.onInputChanged.addListener((text, suggest) => {
+//  chrome.storage.sync.get(null, function(items) {
+//    const lowerCaseText = text.toLowerCase();
+//    const suggestions = Object.keys(items)
+//      .filter(key => key.toLowerCase().includes(lowerCaseText))
+//      .map(key => {
+//        return { content: key, description: key };
+//      });
+//
+//    suggest(suggestions);
+//  });
+//});
+
 chrome.omnibox.onInputChanged.addListener((text, suggest) => {
   chrome.storage.sync.get(null, function(items) {
-    const keys = Object.keys(items);
-    const filteredKeys = keys.filter(key => key.includes(text));
-    const suggestions = filteredKeys.map(key => ({ content: key, description: key }));
+    let suggestions = [];
+
+    if (text) {
+      // If there is text, filter keys based on the input (case-insensitive)
+      const lowerCaseText = text.toLowerCase();
+      suggestions = Object.keys(items)
+        .filter(key => key.toLowerCase().includes(lowerCaseText))
+        .map(key => ({ content: key, description: key }));
+    } else {
+      // If there is no text, list all keys (already in alphabetical order)
+      suggestions = Object.keys(items).map(key => ({ content: key, description: key }));
+    }
+
     suggest(suggestions);
   });
 });
 
+chrome.omnibox.onInputEntered.addListener((text) => {
+  const lowerCaseText = text.toLowerCase();
 
-chrome.omnibox.onInputEntered.addListener((text, disposition) => {
-  chrome.storage.sync.get(text, (result) => {
-    let url = result[text];
+  chrome.storage.sync.get(null, (items) => {
+    // Find the key that matches the entered text in a case-insensitive manner
+    const matchingKey = Object.keys(items).find(key => key.toLowerCase() === lowerCaseText);
 
-    if (url) {
-      url = formatUrl(url);
-      switch (disposition) {
-        case 'currentTab':
-          chrome.tabs.update({ url: url });
-          break;
-        case 'newForegroundTab':
-          chrome.tabs.create({ url: url });
-          break;
-        case 'newBackgroundTab':
-          chrome.tabs.create({ url: url, active: false });
-          break;
+    if (matchingKey) {
+      let url = items[matchingKey];
+
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
       }
+
+      chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        chrome.tabs.update(tabs[0].id, {url: url});
+      });
     }
   });
 });

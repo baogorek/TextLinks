@@ -1,5 +1,9 @@
-# TextLinks
-A Chrome extension for text links, triggered by "go" 
+# The TextLinks Chrome Extension
+A Chrome extension for text links, triggered by "go", spacebar or tab, and then the
+text keyword you've set up. Be sure to pin the extension to your extension bar,
+and click the TextLinks logo.
+
+![TextLinks logo](images/icon128.png)
 
 
 ## Technical notes

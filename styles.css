@@ -85,4 +85,14 @@ button:hover {
   text-align: center; /* Center the logo and the title */
 }
 
+.download-link {
+  font-size: 0.6em; /* Smaller text size */
+  margin-left: 10px; /* Space from the header */
+  text-decoration: none; /* No underline */
+  color: #4285f4; /* Link color, adjust as needed */
+}
+
+.download-link:hover {
+  text-decoration: underline; /* Underline on hover for better UX */
+}
 
